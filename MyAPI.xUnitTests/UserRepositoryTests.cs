@@ -126,5 +126,19 @@ namespace MyAPI.xUnitTests
             Assert.Equal(updatedUser.Name, result.Name); // Check that the name was updated
             Assert.Equal(updatedUser.Email, result.Email); //Check that email was updated
         }
+
+        [Fact]
+        public void DeleteUser_DeletesUserCorrectly()
+        {
+            // Arrange
+            var userId = 1;
+
+            // Act
+            _userRepository.DeleteUser(userId);
+            var result = _userRepository.GetUserById(userId);
+
+            // Assert
+            Assert.Null(result); // Check that the user was deleted and cannot be found
+        }
     }
 }
