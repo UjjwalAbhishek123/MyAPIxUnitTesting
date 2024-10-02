@@ -15,30 +15,56 @@ namespace MyAPI.Models
             _userRepository = userRepository;
         }
 
-        public User GetUserById(int userId)
+        public async Task<User> GetUserByIdAsync(int userId)
         {
-            return _userRepository.GetUserById(userId);
+            return await _userRepository.GetUserByIdAsync(userId);
         }
 
-        public IEnumerable<User> GetAllUsers()
+        //public User GetUserById(int userId)
+        //{
+        //    return _userRepository.GetUserById(userId);
+        //}
+
+        public async Task<IEnumerable<User>> GetAllUsersAsync()
         {
             //returning data from repository
-            return _userRepository.GetAllUsers();
+            return await _userRepository.GetAllUsersAsync();
         }
 
-        public void AddUser(User user)
+        //public IEnumerable<User> GetAllUsers()
+        //{
+        //    //returning data from repository
+        //    return _userRepository.GetAllUsers();
+        //}
+
+        public async Task AddUserAsync(User user)
         {
-            _userRepository.AddUser(user);
+            await _userRepository.AddUserAsync(user);
         }
 
-        public void UpdateUser(User user)
+        //public void AddUser(User user)
+        //{
+        //    _userRepository.AddUser(user);
+        //}
+
+        public async Task UpdateUserAsync(User user)
         {
-            _userRepository.UpdateUser(user);
+            await _userRepository.UpdateUserAsync(user);
         }
 
-        public void DeleteUser(int userId)
+        //public void UpdateUser(User user)
+        //{
+        //    _userRepository.UpdateUser(user);
+        //}
+
+        public async Task DeleteUserAsync(int userId)
         {
-            _userRepository.DeleteUser(userId);
+            await _userRepository.DeleteUserAsync(userId);
         }
+
+        //public void DeleteUser(int userId)
+        //{
+        //    _userRepository.DeleteUser(userId);
+        //}
     }
 }
